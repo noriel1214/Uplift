@@ -18,6 +18,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Data\Initializer\" />
+    
   </ItemGroup>
 
 </Project>
