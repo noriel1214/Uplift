@@ -13,8 +13,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Uplift.Data;
 
-
-
 namespace Uplift
 {
     public class Startup
