@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using Uplift.Data;
+using Uplift.DataAccess.Data;
 
 namespace Uplift.Data.Migrations
 {

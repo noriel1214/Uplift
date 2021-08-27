@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Uplift.Models;
 
-namespace Uplift.Data
+namespace Uplift.DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -12,5 +13,7 @@ namespace Uplift.Data
             : base(options)
         {
         }
+
+        public DbSet<Category> Category { get; set; }
     }
 }
