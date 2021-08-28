@@ -4,8 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Uplift-95AB5F74-208C-4FF3-B754-0ACB99C2BACD</UserSecretsId>
   </PropertyGroup>
-
+  
   <ItemGroup>
+    
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
