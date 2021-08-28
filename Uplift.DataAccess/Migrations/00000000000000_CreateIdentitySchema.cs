@@ -8,7 +8,7 @@ namespace Uplift.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            return;
+       
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
@@ -197,7 +197,7 @@ namespace Uplift.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            return;
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
