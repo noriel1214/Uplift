@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Uplift.DataAccess.Data.Repository.IRepository;
 using Uplift.DataAccess.Data.Repository;
 using Uplift.DataAccess.Data;
+using System;
 
 namespace Uplift
 {
@@ -34,6 +35,13 @@ namespace Uplift
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
@@ -54,7 +62,8 @@ namespace Uplift
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();
