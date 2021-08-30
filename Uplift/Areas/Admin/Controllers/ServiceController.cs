@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Uplift.DataAccess.Data.Repository.IRepository;
-using Uplift.Models;
 using Uplift.Models.ViewModels;
 
 namespace Uplift.Areas.Admin.Controllers
@@ -16,8 +15,10 @@ namespace Uplift.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _hostEnvironment;
+
         [BindProperty]
         public ServiceVM ServVM { get; set; }
+
         public ServiceController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
@@ -27,6 +28,22 @@ namespace Uplift.Areas.Admin.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Upsert(int? id)
+        {
+            ServVM = new ServiceVM()
+            {
+                Service = new Models.Service(),
+                CategoryList = _unitOfWork.Category.GetCategoryListForDropDown(),
+                FrequencyList = _unitOfWork.Frequency.GetFrequencyListForDropDown(),
+            };
+            if (id != null)
+            {
+                ServVM.Service = _unitOfWork.Service.Get(id.GetValueOrDefault());
+            }
+
+            return View(ServVM);
         }
 
         [HttpPost]
@@ -90,21 +107,6 @@ namespace Uplift.Areas.Admin.Controllers
             }
         }
 
-
-        public IActionResult Upsert(int? id)
-        {
-            ServVM = new ServiceVM
-            {
-                Service = new Service(),
-                CategoryList = _unitOfWork.Category.GetCategoryListForDropDown(),
-                FrequencyList = _unitOfWork.Frequency.GetFrequencyListForDropDown()
-            };
-            if(id != null)
-            {
-                ServVM.Service = _unitOfWork.Service.Get(id.GetValueOrDefault());
-            }
-            return View(ServVM);
-        }
 
 
         #region API Calls
