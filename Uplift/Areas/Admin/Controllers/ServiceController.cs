@@ -114,7 +114,9 @@ namespace Uplift.Areas.Admin.Controllers
         #region API Calls
         public IActionResult GetAll()
         {
-            return Json(new { data = _unitOfWork.Service.GetAll(includeProperties: "Category,Frequency") });
+            var _data = _unitOfWork.Service.GetAll(includeProperties: "Frequency,Category");
+
+            return Json(new { data = _data });
         }
 
         [HttpDelete]

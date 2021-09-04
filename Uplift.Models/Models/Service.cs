@@ -26,15 +26,15 @@ namespace Uplift.Models
         public string ImageUrl { get; set; }
 
         [Required]
-        public int CategoryId { get; set; }
+        public  int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public  Category Category { get; set; }
 
         [Required]
-        public int FrequencyId { get; set; }
+        public  int FrequencyId { get; set; }
 
         [ForeignKey("FrequencyId")]
-        public Frequency Frequency { get; set; }
+        public  Frequency Frequency { get; set; }
     }
 }

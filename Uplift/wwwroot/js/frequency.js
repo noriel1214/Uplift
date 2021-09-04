@@ -14,7 +14,7 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name", "width": "25%" },
-            { "data": "frequencyCount", "width": "25%" },
+            { "data": "FrequencyCount", "width": "25%" },
             {
                 "data": "id",
                 "render": function (data) {

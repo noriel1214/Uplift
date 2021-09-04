@@ -1,11 +1,11 @@
 ﻿﻿var  dataTable;
 
 $(document).ready(function () {
-    loadDataTable();
+    loadServiceDataTable();
 });
 
 
-function loadDataTable() {
+function loadServiceDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": {
             "url": "/admin/service/GetAll",
@@ -16,7 +16,7 @@ function loadDataTable() {
             { "data": "name", "width": "20%" },
             { "data": "category.name", "width": "20%" },
             { "data": "price", "width": "15%" },
-            { "data": "frequency.FrequencyCount", "width": "15%" },
+            { "data": "frequency.name", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
